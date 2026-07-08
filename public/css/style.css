@@ -1,0 +1,284 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+:root {
+  --bg-gradient:
+    radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(225, 39%, 25%, 1) 0, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(253, 16%, 7%, 1) 0, transparent 50%);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-input-bg: rgba(0, 0, 0, 0.2);
+  --accent-gradient: linear-gradient(
+    135deg,
+    #6366f1 0%,
+    #a855f7 50%,
+    #ec4899 100%
+  );
+  --text-muted: #94a3b8;
+}
+
+body {
+  background-color: #0b0f19;
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  color: #f8fafc;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background decorative ambient glow */
+.background-blur {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.15) 0%,
+    rgba(236, 72, 153, 0.05) 50%,
+    transparent 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* ==========================================================================
+   2. HEADER & BRANDING
+   ========================================================================== */
+.robot-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: var(--accent-gradient);
+  border-radius: 20px;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+.main-title {
+  font-weight: 700;
+  font-size: 2.75rem;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.main-title span {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   3. GLASS CARDS & FORM ELEMENTS
+   ========================================================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 2rem;
+  height: 100%;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card h3 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.glass-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Custom Textarea */
+.custom-textarea {
+  background: var(--glass-input-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: #f8fafc !important;
+  border-radius: 16px;
+  padding: 1rem;
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.custom-textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25) !important;
+  border-color: #a855f7 !important;
+}
+
+.custom-textarea::placeholder {
+  color: #475569;
+}
+
+/* Meta texts */
+#count,
+.glass-card small {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Buttons */
+.ai-btn {
+  background: var(--accent-gradient);
+  color: white !important;
+  border: none;
+  border-radius: 14px;
+  padding: 0.85rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+  opacity: 0.95;
+}
+
+.ai-btn:active {
+  transform: translateY(0);
+}
+
+#copyBtn {
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+#copyBtn:hover {
+  background: white;
+  color: #0b0f19;
+}
+
+/* Output Box Container */
+.output-box {
+  background: var(--glass-input-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1rem;
+  min-height: 288px; /* Pairs with rows="12" size */
+  font-size: 1rem;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+/* Empty State Styling */
+.output-box .empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 250px;
+  color: #475569;
+  text-align: center;
+}
+
+.output-box .empty i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #475569 0%, #1e293b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   4. FEATURES BOTTOM GRID
+   ========================================================================== */
+.feature-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.feature-box i {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feature-box h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. KEYFRAMES ANIMATIONS
+   ========================================================================== */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Scrollbar customizations */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
