@@ -19,6 +19,9 @@ An AI-powered grammar checking web application built with **Node.js**, **Express
 * Express.js
 * EJS
 * OpenAI API
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://ai-grammar-checker-l066.onrender.com)
 
 ## 📸 Screenshot
 
