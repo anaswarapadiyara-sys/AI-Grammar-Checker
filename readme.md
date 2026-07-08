@@ -84,4 +84,4 @@ AI-Grammar-Checker/
 
 Graduate | MERN Stack Developer | Full Stack Developer
 
-LinkedIn: *(Add your LinkedIn profile link here)*
+LinkedIn: [*(Add your LinkedIn profile link here)*](https://www.linkedin.com/in/anaswara-padiyara-01756a344/)
